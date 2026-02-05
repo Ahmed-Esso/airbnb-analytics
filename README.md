@@ -2,7 +2,7 @@
 
 <img src="https://img.icons8.com/color/96/airbnb.png" alt="logo" width="80"/>
 
-# 🏠 Airbnb Analytics
+#  Airbnb Analytics
 
 ### ✨ Scrape · Clean · Warehouse · Analyze · Predict ✨
 
@@ -353,7 +353,8 @@ source("r_statistics/stat.R")
       <a href="https://github.com/Mayar-hany-2005">@Mayar-hany-2005</a>
     </td>
     <td align="center">
-      <b>Ziad Abdeen</b>
+      <b>Ziad Abdeen</b><br>
+      <a href="https://github.com/ZiadDev123">@ZiadDev123</a>
     </td>
     <td align="center">
       <b>Seif Nour</b>
