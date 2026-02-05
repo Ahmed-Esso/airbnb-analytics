@@ -234,7 +234,7 @@ with st.sidebar:
     min_price = int(df['realSum'].min())
     max_price = int(df['realSum'].max())
     # Cap the slider at a practical range (99% of listings are under $2,000)
-    slider_max = min(max_price, 2000)
+    slider_max = min(max_price, 15000)
     price_range = st.slider(
         "Select price range",
         min_value=min_price,
