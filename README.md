@@ -50,6 +50,7 @@ airbnb-analytics/
 │   ├── star_schema.sql         # SQL Server DDL (star schema + BULK INSERT)
 │   ├── analysis.sql            # 8 advanced analytical SQL queries
 │   ├── hashing.ipynb           # Dimension ID generation (MD5 hashing)
+│   ├── schema_diagram.png      # Star schema diagram
 │   ├── erd.pdf                 # Entity-Relationship Diagram
 │   ├── fact_table_output.csv   # Exported fact table
 │   └── final_raw_with_ids.csv  # Dataset with dimension IDs
@@ -162,6 +163,10 @@ This project is ready for [Streamlit Community Cloud](https://share.streamlit.io
 ---
 
 ## SQL Server Setup (Optional)
+
+### Star Schema
+
+![Star Schema Diagram](schema/schema_diagram.png)
 
 To load data into a local SQL Server instance:
 
