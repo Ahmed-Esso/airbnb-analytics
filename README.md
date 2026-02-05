@@ -346,8 +346,19 @@ This project is for **educational and portfolio purposes**.
 
 ---
 
+## 👥 Team Members
+
+| Name | GitHub |
+|------|--------|
+| **Ahmed Essam** | [@Ahmed-Esso](https://github.com/Ahmed-Esso) |
+| **Mayar Hany** | [@Mayar-hany-2005](https://github.com/Mayar-hany-2005) |
+| **Ziad Abdeen** | |
+| **Seif Nour** | |
+
+---
+
 <div align="center">
 
-**Built with ❤️ by [Ahmed Essam](https://github.com/Ahmed-Esso)**
+**Built with ❤️ by the Airbnb Analytics Team**
 
 </div>
