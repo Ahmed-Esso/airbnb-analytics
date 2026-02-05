@@ -3,7 +3,8 @@
 # 🏠 Airbnb Analytics
 ### European Price Analysis & ML Prediction
 
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://share.streamlit.io)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://airbnb-analytics.streamlit.app/)
+[![Live App](https://img.shields.io/badge/🔗_Live_App-airbnb--analytics.streamlit.app-FF385C?style=for-the-badge)](https://airbnb-analytics.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)](https://www.r-project.org)
 [![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://www.microsoft.com/sql-server)
@@ -125,6 +126,7 @@ airbnb-analytics/
 |------|-------------|
 | **`scraper_cli.py`** | Command-line Playwright scraper (661 lines). Launches headless Chromium, navigates Airbnb search pages for a given city, collects listing URLs, then visits each listing to extract: price per night, room type, guest capacity, amenities (wifi, kitchen, AC, parking, TV, heating), latitude/longitude, ratings, superhost status, and more. Outputs CSV + JSON files. Handles anti-bot detection with random delays and stealth mode. |
 | **`scraper_gui.py`** | Full Tkinter GUI wrapper (1,270 lines) around the scraper engine. Features: mode selection (city search / direct URL / single listing), quick-select buttons for all 10 cities, parallel scraping with `ThreadPoolExecutor`, weekend mode toggle, real-time progress bar, scrollable log window, auto-save per city, and export to CSV. Includes a branded UI with the embedded logo. |
+| **`scraper_screenshot.png`** | Screenshot of the GUI scraper application interface. |
 | **`logo_base64.txt`** | Base64-encoded PNG logo used by the GUI scraper. Loaded at runtime to avoid external image dependencies. |
 | **`WEEKEND_SCRAPING_GUIDE.md`** | Documentation for the weekend scraping mode — explains how to scrape weekend-specific pricing data and merge it with existing datasets using the enrichment pipeline. |
 
@@ -171,7 +173,9 @@ airbnb-analytics/
 | File | Description |
 |------|-------------|
 | **`airbnb_dashboard.pbix`** | Power BI dashboard with 4 interactive pages. Connects to the star schema data and provides drill-down visualizations for pricing trends, city comparisons, host performance, and amenity impact analysis. |
-| **`screenshots/page_1-4.jpg`** | Exported images of each dashboard page for preview in this README (see [Dashboard Gallery](#-dashboard-gallery) below). |
+| **`screenshots/page_1-4.jpg`** | Exported images of each Power BI dashboard page for preview in this README (see [Dashboard Gallery](#-dashboard-gallery) below). |
+| **`screenshots/map.png`** | Streamlit app interactive map screenshot. |
+| **`screenshots/visuals.png`** | Streamlit app charts and visuals screenshot. |
 
 ### 📄 Root Files
 
@@ -204,6 +208,21 @@ airbnb-analytics/
 | Feature | Details |
 |---------|---------|
 | 🗺 **Interactive Map** | Plotly scatter map of 1,500 sampled listings with color-coded prices. Click any point to trigger an AI price prediction for that location. |
+
+#### Streamlit App Preview
+
+<table>
+  <tr>
+    <td><strong>Interactive Map</strong></td>
+    <td><strong>Charts & Visuals</strong></td>
+  </tr>
+  <tr>
+    <td><img src="dashboard/screenshots/map.png" alt="Interactive Map" width="100%"></td>
+    <td><img src="dashboard/screenshots/visuals.png" alt="Charts & Visuals" width="100%"></td>
+  </tr>
+</table>
+
+> 🔗 **Try it live:** [airbnb-analytics.streamlit.app](https://airbnb-analytics.streamlit.app/)
 | 🎛 **7 Sidebar Filters** | City, room type, price range, guest capacity, minimum rating, superhost status, and day type (weekend/weekday). All apply in real-time. |
 | 📊 **3 KPI Cards** | Total listings count, average nightly price, and average guest satisfaction — all responsive to active filters. |
 | 📈 **6 Charts** | Satisfaction gauge, room type pie chart, price box plot by room type, weekend vs weekday bar chart, superhost donut chart, and price by guest capacity. |
@@ -214,6 +233,12 @@ airbnb-analytics/
 | Stage | Details |
 |-------|---------|
 | 🕷 **Scraping** | Headless Chromium navigates Airbnb, extracts listing data with anti-detection (random delays, stealth mode). Supports batch city scraping and weekend mode. |
+
+#### Scraper GUI Preview
+
+<p align="center">
+  <img src="scraper/scraper_screenshot.png" alt="Scraper GUI" width="600">
+</p>
 | 🧹 **Cleaning** | Normalizes two heterogeneous datasets, engineers 10+ features, applies batched KNN imputation (k=3, distance-weighted) for missing values. |
 | 🗃 **Warehousing** | MD5-hashed dimension keys, star schema with proper foreign key constraints, and 9 advanced analytical queries. |
 | 📈 **Statistics** | ANOVA confirms significant price differences across room types; MANOVA reveals multivariate effects on price + satisfaction + cleanliness. |
@@ -253,6 +278,8 @@ streamlit run app/app.py
 
 The app will open at **http://localhost:8501** 🎉
 
+> Or visit the deployed version at **[airbnb-analytics.streamlit.app](https://airbnb-analytics.streamlit.app/)**
+
 ### Run the Scraper (Optional)
 
 ```bash
@@ -287,7 +314,9 @@ This project is **ready for one-click deployment** on [Streamlit Community Cloud
 4. Set **Main file path** to `app/app.py`
 5. Click **Deploy** 🚀
 
-> **Note:** Streamlit Cloud supports Git LFS and automatically detects `requirements.txt` at the repo root. No additional configuration needed.
+> ✅ **The app is already deployed and live at [airbnb-analytics.streamlit.app](https://airbnb-analytics.streamlit.app/)**
+>
+> Streamlit Cloud supports Git LFS and automatically detects `requirements.txt` at the repo root. No additional configuration needed.
 
 ---
 
