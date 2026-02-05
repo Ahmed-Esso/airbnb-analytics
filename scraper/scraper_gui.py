@@ -60,7 +60,8 @@ class AirbnbScraperApp:
             from io import BytesIO
             
             # Airbnb logo embedded as base64
-            logo_base64 = open('logo_base64.txt', 'r').read()
+            logo_path = Path(__file__).parent / 'logo_base64.txt'
+            logo_base64 = open(logo_path, 'r').read()
             logo_data = base64.b64decode(logo_base64)
             logo_image = Image.open(BytesIO(logo_data))
             logo_image = logo_image.resize((300, 100), Image.Resampling.LANCZOS)
