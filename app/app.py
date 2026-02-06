@@ -202,6 +202,16 @@ def load_model():
 
 df = load_data()
 
+# Remove outliers using IQR method (calculated dynamically from data)
+Q1 = df['realSum'].quantile(0.25)
+Q3 = df['realSum'].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - (1.5 * IQR)
+upper_bound = Q3 + (1.5 * IQR)
+
+# Filter out outliers from realSum column
+df = df[(df['realSum'] >= lower_bound) & (df['realSum'] <= upper_bound)].copy()
+
 # ==================== SIDEBAR FILTERS ====================
 with st.sidebar:
     st.markdown("### Filters")
@@ -233,8 +243,8 @@ with st.sidebar:
     st.markdown("#### Price Range ($)")
     min_price = int(df['realSum'].min())
     max_price = int(df['realSum'].max())
-    # Cap the slider at a practical range (99% of listings are under $2,000)
-    slider_max = min(max_price, 15000)
+    # Use actual max after outlier removal (capped at ~490)
+    slider_max = max_price
     price_range = st.slider(
         "Select price range",
         min_value=min_price,
@@ -327,7 +337,7 @@ df = filtered_df
 st.markdown(f"""
 <div class="header-container">
     <h1>Airbnb Analytics Dashboard</h1>
-    <p style="font-size: 16px; margin-top: 10px; opacity: 0.9;">Showing {len(df):,} of {len(load_data()):,} listings</p>
+    <p style="font-size: 16px; margin-top: 10px; opacity: 0.9;">Showing {len(df):,} of {len(load_data()):,} listings (outliers removed using IQR method)</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -460,7 +470,7 @@ with col3:
         plot_bgcolor=chart_bg,
         font=dict(color='#000000'), 
         showlegend=False, 
-        yaxis=dict(title="Price ($)", range=[0, 800], gridcolor=chart_grid_color, title_font=dict(color='#000000'), tickfont=dict(color='#000000')), 
+        yaxis=dict(title="Price ($)", range=[0, 500], gridcolor=chart_grid_color, title_font=dict(color='#000000'), tickfont=dict(color='#000000')), 
         xaxis=dict(title=None, showticklabels=True, tickfont=dict(color='#000000'))
     )
     st.plotly_chart(fig_box, use_container_width=True)
