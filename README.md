@@ -95,7 +95,7 @@ A complete data analytics project that goes from **raw web scraping** all the wa
 
 | | Feature |
 |---|---------|
-| 🎛️ | **7 sidebar filters** for city, room type, price ($0–$2,000), guest capacity, rating, superhost, weekend/weekday |
+| 🎛️ | **7 sidebar filters** for city, room type, price ($0–$490), guest capacity, rating, superhost, weekend/weekday |
 | 🗺️ | **Interactive map** where clicking any listing dot auto-fills the AI predictor |
 | 🤖 | **AI price predictor** using CatBoost on 6 features (city, room type, capacity, cleanliness, distance, weekend) |
 | 📊 | **6 analytical charts** including satisfaction gauge, room type pie, price box plot, weekend bar, superhost donut, capacity bar |
