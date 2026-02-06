@@ -157,8 +157,8 @@ airbnb-analytics/
 │   └── stat.R                        #   ANOVA & MANOVA (190 lines)
 │
 ├── 📊 dashboard/                     # Power BI dashboard
-│   ├── airbnb_dashboard.pbix         #   4-page interactive dashboard
-│   └── screenshots/                  #   Preview images
+│   └── screenshots/                  #   Preview images & dashboard file
+│       └── airbnb_dashboard.pbix     #   4-page interactive dashboard
 │
 ├── 📄 requirements.txt               # Python dependencies
 ├── 📄 .gitattributes                 # Git LFS rules
